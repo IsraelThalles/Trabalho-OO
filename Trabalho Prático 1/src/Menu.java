@@ -20,58 +20,36 @@ public class Menu {
 		        System.out.print("Índice inválido!\n");
     		}
         } while(x < 1 || x > 6);
-        if(x==6) {
-	        System.out.println("\n"
-	        		+ " ________ ___  _____ ______   ___       \n"
-	        		+ "|\\  _____\\\\  \\|\\   _ \\  _   \\|\\  \\      \n"
-	        		+ "\\ \\  \\__/\\ \\  \\ \\  \\\\\\__\\ \\  \\ \\  \\     \n"
-	        		+ " \\ \\   __\\\\ \\  \\ \\  \\\\|__| \\  \\ \\  \\    \n"
-	        		+ "  \\ \\  \\_| \\ \\  \\ \\  \\    \\ \\  \\ \\__\\   \n"
-	        		+ "   \\ \\__\\   \\ \\__\\ \\__\\    \\ \\__\\|__|   \n"
-	        		+ "    \\|__|    \\|__|\\|__|     \\|__|   ___ \n"
-	        		+ "                                   |\\__\\\n"
-	        		+ "                                   \\|__|\n"
-	        		+ "                                        \n"
-	        		+ "");
-        	return 0;
-        }
-		do {
-	        System.out.print("Digite o ano (entre 2011 e 2020):\n");
-			ano = ler.nextInt();
-			if(ano < 2011 || ano > 2020) {
-		        System.out.print("Ano inválido!\n");
-			}
-		} while (ano < 2011 || ano > 2020);
-		do {
-	        System.out.print("Digite o mês (entre 1 e 12):\n");
-			mes = ler.nextInt();
-			if(mes < 1 || mes > 12) {
-		        System.out.print("Mês inválido!\n");
-			}
-		} while(mes < 1 || mes > 12);
+		
+		if(x >= 1 && x <= 5) {
+			do {
+		        System.out.print("Digite o ano (entre 2011 e 2020):\n");
+				ano = ler.nextInt();
+				if(ano < 2011 || ano > 2020) {
+			        System.out.print("Ano inválido!\n");
+				}
+			} while (ano < 2011 || ano > 2020);
+			do {
+		        System.out.print("Digite o mês (entre 1 e 12):\n");
+				mes = ler.nextInt();
+				if(mes < 1 || mes > 12) {
+			        System.out.print("Mês inválido!\n");
+				}
+			} while(mes < 1 || mes > 12);
 
-		switch(x) {
-		case 1:
-			//Chamada da função para cadastrar médias de temperatura
-			Cadastrar.enterTemp(mes, ano);
-			break;
-		case 2:
-			//Chamada da função para calcular temperatura média
-			Media.tempMedia(mes, ano);
-		case 3:
-			//Chamada da função para imprimir temperatura mínima
-			Minima.tempMin(mes, ano);
-			break;
-		case 4:
-			//Chamada da função para imprimir temperatura máxima
-			Maxima.tempMax(mes, ano);
-			break;
-		case 5:
-			//Chamada da função para gerar relatório
-			Relatorio.relatorio(mes, ano);
-			break;
-		default:
-			break;
+			if(x==1) {
+				Cadastrar.enterTemp(mes, ano);
+			} else if(x==2) {
+				Media.tempMedia(mes, ano);
+			} else if(x==3) {
+				Minima.tempMin(mes, ano);
+			} else if(x==4) {
+				Maxima.tempMax(mes, ano);
+			} else if(x==5) {
+				Relatorio.relatorio(mes, ano);
+			}
+		} else {
+        	Fim.pararPrograma();
 		}
 
 		return 0;
